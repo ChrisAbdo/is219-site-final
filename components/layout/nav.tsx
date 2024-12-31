@@ -16,7 +16,9 @@ export default function Nav() {
       <div>
         <span className="text-2xl font-semibold flex items-center gap-x-0.5">
           <TargetIcon className="inline-block size-5" />
-          <TextScramble>christopher abdo</TextScramble>
+          <Link href="/" className="hover:underline">
+            <TextScramble>christopher abdo</TextScramble>
+          </Link>
         </span>
       </div>
       <nav>

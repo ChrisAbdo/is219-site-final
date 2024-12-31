@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import Nav from "@/components/layout/nav";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,10 @@ export default function RootLayout({
       <body
         className={`${GeistMono.className} antialiased px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 py-6 sm:py-12 md:py-16 lg:py-20 xl:py-24`}
       >
-        {children}
+        <div className="flex flex-col gap-8">
+          <Nav />
+          {children}
+        </div>
       </body>
     </html>
   );
