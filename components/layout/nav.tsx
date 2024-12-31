@@ -1,4 +1,5 @@
 import { TextScramble } from "@/components/core/text-scramble";
+import { TargetIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 const links = [
@@ -13,7 +14,8 @@ export default function Nav() {
   return (
     <div className="flex justify-between items-start">
       <div>
-        <span className="text-2xl font-semibold">
+        <span className="text-2xl font-semibold flex items-center gap-x-0.5">
+          <TargetIcon className="inline-block size-5" />
           <TextScramble>christopher abdo</TextScramble>
         </span>
       </div>

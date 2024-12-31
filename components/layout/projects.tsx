@@ -1,5 +1,7 @@
 import React from "react";
 import { TextScramble } from "@/components/core/text-scramble";
+import { StarIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export default async function Projects() {
   const projects = [
@@ -8,26 +10,90 @@ export default async function Projects() {
       description: "framer motion text animation variants",
       href: "https://github.com/ChrisAbdo/MotionVariants",
     },
+    {
+      title: "self hosted cms + rest api",
+      description:
+        "fully self hosted cms using docker, drupal, traefik, watchtower, letsencrypt",
+      href: "https://github.com/ChrisAbdo/drupal-traefik",
+    },
+    {
+      title: "ai rag internal knowledge base",
+      description:
+        "generate a knowledge base of any website. scrape a url and generate a chattable knowledge base.",
+      href: "https://github.com/ChrisAbdo/IKB",
+    },
+    {
+      title: "'iforget' ai cli tool",
+      description:
+        "ai powered cli tool to help you with commands you forgot. gpt-4 + bun $hell",
+      href: "https://github.com/ChrisAbdo/AI-CLI/tree/main/iforget-cli",
+    },
+    {
+      title: "gpt4 pdf summarizer",
+      description: "summarize any pdf with gpt-4",
+      href: "https://github.com/ChrisAbdo/GPT4-PDF-Summarizer",
+    },
+    {
+      title: "url to markdown converter",
+      description: "convert any url to markdown at high speeds",
+      href: "https://github.com/ChrisAbdo/md",
+    },
   ];
 
   const projectsWithStars = await Promise.all(
     projects.map(async (project) => {
-      const res = await fetch(
-        `https://api.github.com/repos${new URL(project.href).pathname}`
-      );
-      const json = await res.json();
-      return { ...project, stars: json.stargazers_count };
+      const { stargazers_count: stars } = await fetch(
+        `https://api.github.com/repos${new URL(project.href).pathname}`,
+        {
+          ...(process.env.GITHUB_OAUTH_TOKEN && {
+            headers: {
+              Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
+              "Content-Type": "application/json",
+            },
+          }),
+          next: { revalidate: 86400 },
+        }
+      )
+        .then((res) => res.json())
+        .catch((e) => {
+          console.error(`Error fetching stars for ${project.title}:`, e);
+          return { stargazers_count: null };
+        });
+
+      return { ...project, stars };
     })
   );
 
   return (
     <div>
-      <TextScramble>Projects</TextScramble>
+      <TextScramble className="font-semibold mb-6">projects</TextScramble>
+
       {projectsWithStars.map((project, index) => (
-        <div key={index}>
-          <TextScramble>{project.title}</TextScramble>
-          <TextScramble>{project.description}</TextScramble>
-          <TextScramble>{`Stars: ${project.stars}`}</TextScramble>
+        <div
+          key={index}
+          className="flex justify-between items-center mb-8 py-1 px-2 rounded-sm"
+        >
+          <div className="max-w-3xl">
+            <TextScramble className="underline">{project.title}</TextScramble>
+            <TextScramble>{project.description}</TextScramble>
+          </div>
+          <div>
+            <Link
+              href={project.href}
+              className="hover:underline"
+              rel="noopener"
+              target="_blank"
+              prefetch={false}
+            >
+              <TextScramble> view github</TextScramble>
+            </Link>
+            <span className="flex items-center gap-x-0.5">
+              <StarIcon className="size-4" />
+              <TextScramble className="mt-0.5">
+                {project.stars ? `${project.stars}` : "n/a"}
+              </TextScramble>
+            </span>
+          </div>
         </div>
       ))}
     </div>
