@@ -1,6 +1,6 @@
 import React from "react";
 import { TextScramble } from "@/components/core/text-scramble";
-import { StarIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon, StarIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 export default async function Projects() {
@@ -83,12 +83,13 @@ export default async function Projects() {
             <div className="flex justify-between items-center mt-3">
               <Link
                 href={project.href}
-                className="hover:underline"
+                className="hover:underline flex items-center gap-x-0.5"
                 rel="noopener"
                 target="_blank"
                 prefetch={false}
               >
-                <TextScramble>view github</TextScramble>
+                <GitHubLogoIcon className="size-4" />
+                <TextScramble className="mt-0.5">view github</TextScramble>
               </Link>
               <span className="flex items-center gap-x-0.5">
                 <StarIcon className="size-4" />

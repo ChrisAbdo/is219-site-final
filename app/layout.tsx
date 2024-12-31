@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Nav from "@/components/layout/nav";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "christopher abdo",
@@ -15,14 +16,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${GeistMono.className} antialiased px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 py-6 sm:py-12 md:py-16 lg:py-20 xl:py-24 uppercase`}
-      >
-        <div className="flex flex-col gap-8">
-          <Nav />
-          {children}
-        </div>
+    <html lang="en" className={GeistMono.className} suppressHydrationWarning>
+      <body className="antialiased px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 py-6 sm:py-12 md:py-16 lg:py-20 xl:py-24 uppercase">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex flex-col gap-8">
+            <Nav />
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

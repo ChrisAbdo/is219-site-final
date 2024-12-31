@@ -1,6 +1,7 @@
 import React from "react";
 import { TextScramble } from "@/components/core/text-scramble";
 import Link from "next/link";
+import { Link2Icon } from "@radix-ui/react-icons";
 
 export default function Hackathons() {
   const hackathons = [
@@ -45,11 +46,12 @@ export default function Hackathons() {
           </div>
           <Link
             href={hackathon.href}
-            className="hover:underline text-sm sm:text-base mt-2 w-fit"
+            className="hover:underline text-sm sm:text-base mt-2 w-fit flex items-center gap-x-0.5"
             rel="noopener"
             target="_blank"
             prefetch={false}
           >
+            <Link2Icon className="size-4" />
             <TextScramble>view project</TextScramble>
           </Link>
         </div>
