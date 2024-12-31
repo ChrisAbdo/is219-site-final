@@ -14,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GeistMono.className} antialiased px-48 py-24`}>
+      <body
+        className={`${GeistMono.className} antialiased px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 py-6 sm:py-12 md:py-16 lg:py-20 xl:py-24`}
+      >
         {children}
       </body>
     </html>
