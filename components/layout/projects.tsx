@@ -66,36 +66,40 @@ export default async function Projects() {
 
   return (
     <div>
-      <TextScramble className="font-semibold mb-6">projects</TextScramble>
+      <TextScramble className="font-semibold mb-6">
+        &#x2022; projects
+      </TextScramble>
 
-      {projectsWithStars.map((project, index) => (
-        <div
-          key={index}
-          className="flex justify-between items-center mb-8 py-1 px-2 rounded-sm"
-        >
-          <div className="max-w-3xl">
-            <TextScramble className="underline">{project.title}</TextScramble>
-            <TextScramble>{project.description}</TextScramble>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projectsWithStars.map((project, index) => (
+          <div
+            key={index}
+            className="flex flex-col justify-between py-1 px-2 rounded-sm h-full"
+          >
+            <div>
+              <TextScramble className="underline">{project.title}</TextScramble>
+              <TextScramble>{project.description}</TextScramble>
+            </div>
+            <div className="flex justify-between items-center mt-3">
+              <Link
+                href={project.href}
+                className="hover:underline"
+                rel="noopener"
+                target="_blank"
+                prefetch={false}
+              >
+                <TextScramble>view github</TextScramble>
+              </Link>
+              <span className="flex items-center gap-x-0.5">
+                <StarIcon className="size-4" />
+                <TextScramble className="mt-0.5">
+                  {project.stars ? `${project.stars}` : "n/a"}
+                </TextScramble>
+              </span>
+            </div>
           </div>
-          <div>
-            <Link
-              href={project.href}
-              className="hover:underline"
-              rel="noopener"
-              target="_blank"
-              prefetch={false}
-            >
-              <TextScramble> view github</TextScramble>
-            </Link>
-            <span className="flex items-center gap-x-0.5">
-              <StarIcon className="size-4" />
-              <TextScramble className="mt-0.5">
-                {project.stars ? `${project.stars}` : "n/a"}
-              </TextScramble>
-            </span>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

@@ -12,21 +12,25 @@ const links = [
 ];
 export default function Nav() {
   return (
-    <div className="flex justify-between items-start">
+    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
       <div>
-        <span className="text-2xl font-semibold flex items-center gap-x-0.5">
-          <TargetIcon className="inline-block size-5" />
+        <span className="text-lg sm:text-xl md:text-2xl font-semibold flex items-center gap-x-0.5">
+          <TargetIcon className="inline-block size-4 sm:size-5" />
           <Link href="/" className="hover:underline">
-            <TextScramble>christopher abdo</TextScramble>
+            <TextScramble className="text-lg sm:text-xl md:text-2xl">
+              christopher abdo
+            </TextScramble>
           </Link>
         </span>
       </div>
-      <nav>
-        <ul className="flex space-x-4">
+      <nav className="mt-2 sm:mt-0">
+        <ul className="flex flex-wrap gap-2 sm:gap-4">
           {links.map((link) => (
             <li key={link.href}>
               <Link href={link.href} className="hover:underline">
-                <TextScramble>{link.label}</TextScramble>
+                <TextScramble className="text-sm sm:text-base">
+                  {link.label}
+                </TextScramble>
               </Link>
             </li>
           ))}

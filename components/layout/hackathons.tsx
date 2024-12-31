@@ -22,7 +22,9 @@ export default function Hackathons() {
   ];
   return (
     <div>
-      <TextScramble className="font-semibold mb-6">hackathons</TextScramble>
+      <TextScramble className="font-semibold mb-6">
+        &#x2022; hackathons
+      </TextScramble>
 
       {hackathons.map((hackathon, index) => (
         <div key={index} className="flex flex-col mb-8 py-1 px-2 rounded-sm">
