@@ -22,7 +22,9 @@ export default async function GuestbookPage() {
         </div>
       </form>
       <div className="mt-6">
-        <h2 className="underline mb-4">recent messages</h2>
+        <h2 className="">recent messages</h2>
+        <hr className="border-t-1 border-black mb-4" />
+
         {entries.map((entry) => (
           <div key={entry.id} className="mb-4">
             <p>{entry.message}</p>
