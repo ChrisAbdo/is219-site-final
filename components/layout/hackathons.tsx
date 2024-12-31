@@ -21,30 +21,37 @@ export default function Hackathons() {
     },
   ];
   return (
-    <div>
-      <TextScramble className="font-semibold mb-6">
+    <div className="w-full">
+      <TextScramble className="font-semibold mb-4 sm:mb-6">
         &#x2022; hackathons
       </TextScramble>
 
       {hackathons.map((hackathon, index) => (
-        <div key={index} className="flex flex-col mb-8 py-1 px-2 rounded-sm">
-          <div className="flex justify-between items-center">
-            <TextScramble className="underline">{hackathon.title}</TextScramble>
-            <Link
-              href={hackathon.href}
-              className="hover:underline"
-              rel="noopener"
-              target="_blank"
-              prefetch={false}
-            >
-              <TextScramble>view project</TextScramble>
-            </Link>
-          </div>
-          <div className="max-w-3xl">
-            <TextScramble>{hackathon.description}</TextScramble>
+        <div
+          key={index}
+          className="flex flex-col mb-6 sm:mb-8 py-1 px-2 rounded-sm"
+        >
+          <TextScramble className="underline mb-2">
+            {hackathon.title}
+          </TextScramble>
+          <div className="w-full sm:max-w-3xl">
+            <TextScramble className="text-sm sm:text-base">
+              {hackathon.description}
+            </TextScramble>
             <br />
-            <TextScramble>{hackathon.award}</TextScramble>
+            <TextScramble className="text-sm sm:text-base mt-2">
+              {hackathon.award}
+            </TextScramble>
           </div>
+          <Link
+            href={hackathon.href}
+            className="hover:underline text-sm sm:text-base mt-2 w-fit"
+            rel="noopener"
+            target="_blank"
+            prefetch={false}
+          >
+            <TextScramble>view project</TextScramble>
+          </Link>
         </div>
       ))}
     </div>
