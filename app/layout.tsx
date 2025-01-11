@@ -24,7 +24,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col gap-8">
+          {/* <MatrixBackground /> */}
+
+          <div className="flex flex-col gap-8 relative z-10">
             <Nav />
             {children}
           </div>

@@ -6,7 +6,6 @@ export default function Bio() {
     <div>
       <TextScramble>software & design engineer</TextScramble>
       <TextScramble>devops enthusiast</TextScramble>
-      <TextScramble>prev @ julius.ai, njit</TextScramble>
     </div>
   );
 }
