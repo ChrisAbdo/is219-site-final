@@ -9,7 +9,7 @@ export default function Hackathons() {
       title: "ethglobal hack-fevm",
       description:
         "developed soulmates, a soulbound token (sbt) issuance engine, built on fevm (filecoin v virtual machine). soulbound tokens with provably stored metadata, powered by fevm.",
-      award: "grand prize for best use of filecoin",
+      award: "🏆 grand prize for best use of filecoin",
       href: "https://ethglobal.com/showcase/soulmates-wveqg",
     },
     {
@@ -17,7 +17,7 @@ export default function Hackathons() {
       description:
         "developed destemr, a decentralized music streaming platform built on top of polygon.",
       award:
-        "top 9 ipfs & filecoin prize, top 6 covalent best use of api prize",
+        "🏆 top 9 ipfs & filecoin prize, 🥈 top 6 covalent best use of api prize",
       href: "https://ethglobal.com/showcase/destemr-y5mw7",
     },
   ];

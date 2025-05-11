@@ -1,6 +1,7 @@
 import Bio from "@/components/layout/bio";
 import Hackathons from "@/components/layout/hackathons";
 import Projects from "@/components/layout/projects";
+import School from "@/components/layout/school";
 import Socials from "@/components/layout/socials";
 import React from "react";
 
@@ -13,6 +14,7 @@ export default function Home() {
           <Socials />
         </div>
       </div>
+      <School />
       <hr className="border-t-1 border-primary" />
       <Projects />
       <hr className="border-t-1 border-primary" />

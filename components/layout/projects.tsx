@@ -11,17 +11,18 @@ export default async function Projects() {
       href: "https://github.com/ChrisAbdo/MotionVariants",
     },
     {
-      title: "self hosted cms + rest api",
-      description:
-        "fully self hosted cms using docker, drupal, traefik, watchtower, letsencrypt",
-      href: "https://github.com/ChrisAbdo/drupal-traefik",
-    },
-    {
       title: "ai rag internal knowledge base",
       description:
         "generate a knowledge base of any website. scrape a url and generate a chattable knowledge base.",
       href: "https://github.com/ChrisAbdo/IKB",
     },
+    {
+      title: "self hosted cms + rest api",
+      description:
+        "fully self hosted cms using docker, drupal, traefik, watchtower, letsencrypt",
+      href: "https://github.com/ChrisAbdo/drupal-traefik",
+    },
+
     {
       title: "'iforget' ai cli tool",
       description:
@@ -67,7 +68,7 @@ export default async function Projects() {
   return (
     <div>
       <TextScramble className="font-semibold mb-6">
-        &#x2022; projects
+        &#x2022; personal projects
       </TextScramble>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
